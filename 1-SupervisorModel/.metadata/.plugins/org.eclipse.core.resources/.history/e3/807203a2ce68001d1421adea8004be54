@@ -1,0 +1,331 @@
+/*
+ * routines.h
+ *
+ *  Created on: Nov 17, 2022
+ *      Author: ruimendes
+ */
+
+#include "main.h"
+
+// CAN Id's
+#define MASTER_ID		0x02
+#define EMERG_ID		0x01
+#define CARD_ID			0x03
+
+// CAN Rx Flags
+#define INIT_MSG_FLAG 	0x10
+#define START_MSG_FLAG	0x20
+#define EMERG_MSG_FLAG	0xF0
+
+// CAN & Internal Tx Flag Fails
+#define INIT_FAIL_MSG 	0x11
+#define START_FAIL_MSG 	0x21
+#define SAFE_FAIL_MSG 	0x31
+#define EMERG_FAIL_MSG 	0xF0
+
+// CAN & Internal Tx Flag OK
+#define INIT_OK_MSG 	0x12
+#define START_OK_MSG 	0x22
+
+
+/**
+ * @brief  Structure responsible for gains of ADC and calibration of sensor values
+ * @note   
+ * @retval None
+ */
+typedef struct
+{
+	float Gain[6];
+	float Offset[6];
+}TypeDefSAC_Gains;
+
+/**
+ * @brief  Structure specific to the SAC card
+ * @note   
+ * @retval None
+ */
+typedef struct
+{
+	float LimitU[6];
+	float LimitD[6];
+	float Values[6];
+
+	TypeDefSAC_Gains Sensor_Gains;
+
+	uint8_t CH1_State;
+	uint8_t CH2_State;
+	uint8_t CH3_State;
+	uint8_t CH4_State;
+	uint8_t CH5_State;
+	uint8_t CH6_State;
+
+	uint8_t SuperState;
+}TypeDefSAC_Limits;
+
+TypeDefSAC_Limits		SAC_Limits;
+
+/**
+ * @brief  CAN transfer routine
+ * @note   Non-master cards will only communicate 
+ * to master id or emergency broadcast
+ * @param  ReturnMSGFlag:Type of message to return (see flag table for more info) 
+ * @retval None
+ */
+void CAN_Tx_Routine(CAN_HandleTypeDef *hcan)
+{
+	HAL_CAN_AddTxMessage(hcan, &txHeader, &TxMailbox);
+}
+
+/**
+ * @brief  Call to this routnine wil disable all outputs of the card
+ * as well as verify safety loop status and communicate turn-off to master
+ * @note   
+ * @param  *Buffer: Message recieved in case of overall shutdown command by master
+ * @param  DataLength: Length of buffer provided by CAN
+ * @param  FlagType: Type of turn-off self or outside command
+ * @retval None
+ */
+void TurnOff_Routine(uint8_t *Buffer, uint32_t DataLength, uint8_t FlagType,TIM_HandleTypeDef* htim,CAN_HandleTypeDef *hcan)
+{
+	// Stop SuperRoutine interrupt wait for restart from master
+	// And clearance of the safety loop
+	HAL_TIM_Base_Stop_IT(htim);
+
+	switch (FlagType)
+	{
+	case INIT_FAIL_MSG:
+
+	case START_FAIL_MSG:
+
+	case SAFE_FAIL_MSG:
+
+	case EMERG_FAIL_MSG:
+
+	}
+}
+
+/**
+ * @brief  
+ * @note   
+ * @param  *Buffer: 
+ * @param  DataLength: 
+ * @retval None
+ */
+void Init_Routine(uint8_t *Buffer, uint32_t DataLength,CAN_HandleTypeDef *hcan)
+{
+
+	int8_t USignal,DSignal;
+	float Scale1, Scale2;
+
+
+	for(uint32_t i = 2,j=0 ; i < DataLength; i+=6,j++)
+	{
+
+		USignal = (Buffer[i+1] == 0x10 || Buffer[i+1] == 0x11)?-1:1;
+		DSignal = (Buffer[i+1] == 0x01 || Buffer[i+1] == 0x11)?-1:1;
+
+		switch (Buffer[i] & 0b11110000)
+		{
+		case 0x10:
+			Scale1 = 0.001;
+		case 0x20:
+			Scale1 = 0.01;
+		case 0x30:
+			Scale1 = 0.1;
+		case 0x40:
+			Scale1 = 1;
+		case 0x50:
+			Scale1 = 10;
+		case 0x60:
+			Scale1 = 100;
+		case 0x70:
+			Scale1 = 1000;
+		default:
+			Scale1 = 1;
+		}
+
+		switch (Buffer[i] & 0b00001111)
+		{
+		case 0x01:
+			Scale2 = 0.001;
+		case 0x02:
+			Scale2 = 0.01;
+		case 0x03:
+			Scale2 = 0.1;
+		case 0x04:
+			Scale2 = 1;
+		case 0x05:
+			Scale2 = 10;
+		case 0x06:
+			Scale2 = 100;
+		case 0x07:
+			Scale2 = 1000;
+		default:
+			Scale2 = 1;
+		}
+
+		SAC_Limits.LimitU[j] = (float)(USignal*(Buffer[i] << 8) | Buffer[i+1])*Scale1;
+		SAC_Limits.LimitD[j] = (float)(DSignal*(Buffer[i] << 8) | Buffer[i+1])*Scale2;
+
+	}
+
+	SAC_Limits.SuperState = (SAC_Limits.SuperState == 0)?1:0;
+	CAN_Tx_Routine(INIT_OK_MSG);
+
+}
+
+/**
+ * @brief  
+ * @note   
+ * @param  *Buffer: 
+ * @param  DataLength: 
+ * @retval None
+ */
+void Start_Routine(uint8_t *Buffer, uint32_t DataLength,TIM_HandleTypeDef* htim,CAN_HandleTypeDef *hcan)
+{
+	// Enable SuperRoutine Interrupt &&
+	// Update ADC gains from calibration routine
+	int8_t USignal,DSignal;
+	float Scale1, Scale2;
+
+
+	for(uint32_t i = 2,j=0 ; i < DataLength; i+=6,j++)
+	{
+
+		USignal = (Buffer[i+1] == 0x10 || Buffer[i+1] == 0x11)?-1:1;
+		DSignal = (Buffer[i+1] == 0x01 || Buffer[i+1] == 0x11)?-1:1;
+
+		switch (Buffer[i] & 0b11110000)
+		{
+		case 0x10:
+			Scale1 = 0.001;
+		case 0x20:
+			Scale1 = 0.01;
+		case 0x30:
+			Scale1 = 0.1;
+		case 0x40:
+			Scale1 = 1;
+		case 0x50:
+			Scale1 = 10;
+		case 0x60:
+			Scale1 = 100;
+		case 0x70:
+			Scale1 = 1000;
+		default:
+			Scale1 = 1;SAC_Limits.START_FLAG = 1;
+		}
+
+		switch (Buffer[i] & 0b00001111)
+		{
+		case 0x01:
+			Scale2 = 0.001;
+		case 0x02:
+			Scale2 = 0.01;
+		case 0x03:
+			Scale2 = 0.1;
+		case 0x04:
+			Scale2 = 1;
+		case 0x05:
+			Scale2 = 10;
+		case 0x06:
+			Scale2 = 100;
+		case 0x07:
+			Scale2 = 1000;
+		default:
+			Scale2 = 1;
+		}
+
+		SAC_Limits.Sensor_Gains.Gain[j] = (float)(USignal*(Buffer[i] << 8) | Buffer[i+1])*Scale1;
+		SAC_Limits.Sensor_Gains.Offset[j] = (float)(DSignal*(Buffer[i] << 8) | Buffer[i+1])*Scale2;
+
+	}
+
+	SAC_Limits.SuperState = (SAC_Limits.SuperState == 1)?2:TurnOff_Routine(Buffer,DataLength,INIT_FAIL_MSG,htim,hcan);
+
+	if (SAC.Limits.SuperState == 2)
+	{
+		CAN_Tx_Routine(START_OK_MSG);
+		HAL_TIM_Base_Start_IT(htim);
+	}
+}
+
+/**
+ * @brief  
+ * @note   
+ * @retval None
+ */
+void SuperRoutine(uint32_t* ADC_Buffer,uint32_t ADC_Buffer_Size,uint8_t ADC_DMA_Flag,TIM_HandleTypeDef* htim,CAN_HandleTypeDef *hcan)
+{
+
+	SAC_Limits.SuperState = (SAC_Limits.SuperState == 2 || SAC_Limits.SuperState == 3)?3:TurnOff_Routine(ADC_Buffer,ADC_Buffer_Size,START_FAIL_MSG,htim,hcan);
+
+
+	for (uint8_t i = 0; i < ADC_Buffer_Size && ADC_DMA_Flag;i++)
+	{
+		SAC_Limits.Values[i] = (float) ADC_Buffer[i]*SAC_Limits.Sensor_Gains.Gain[i] + SAC_Limits.Sensor_Gains.Offset[i];
+	}
+
+	ADC_DMA_Flag = 0;
+
+	SAC_Limits.CH1_State = (SAC_Limits.Values[0] > SAC_Limits.LimitU[0])?1:0;
+	SAC_Limits.CH2_State = (SAC_Limits.Values[1] > SAC_Limits.LimitU[1])?1:0;
+	SAC_Limits.CH3_State = (SAC_Limits.Values[2] > SAC_Limits.LimitU[2])?1:0;
+	SAC_Limits.CH4_State = (SAC_Limits.Values[3] > SAC_Limits.LimitU[3])?1:0;
+	SAC_Limits.CH5_State = (SAC_Limits.Values[4] > SAC_Limits.LimitU[4])?1:0;
+	SAC_Limits.CH6_State = (SAC_Limits.Values[5] > SAC_Limits.LimitU[5])?1:0;
+
+	SAC_Limits.CH1_State = (SAC_Limits.Values[0] < SAC_Limits.LimitD[0])?2:0;
+	SAC_Limits.CH2_State = (SAC_Limits.Values[1] < SAC_Limits.LimitD[1])?2:0;
+	SAC_Limits.CH3_State = (SAC_Limits.Values[2] < SAC_Limits.LimitD[2])?2:0;
+	SAC_Limits.CH4_State = (SAC_Limits.Values[3] < SAC_Limits.LimitD[3])?2:0;
+	SAC_Limits.CH5_State = (SAC_Limits.Values[4] < SAC_Limits.LimitD[4])?2:0;
+	SAC_Limits.CH6_State = (SAC_Limits.Values[5] < SAC_Limits.LimitD[5])?2:0;
+
+	SAC_Limits.ANY_FLAG = (SAC_Limits.CH1_State+SAC_Limits.CH2_State+SAC_Limits.CH3_State+SAC_Limits.CH4_State+SAC_Limits.CH5_State+SAC_Limits.CH6_State != 0)?1:0;
+
+	uint8_t SafeLoop = HAL_GPIO_ReadPin(SafetyLoopIn_GPIO_Port, SafetyLoopIn_Pin);
+
+	if (SAC_Limits.ANY_FLAG && SafeLoop)
+	{
+		HAL_GPIO_WritePin(SafetyLoopOutput_GPIO_Port,SafetyLoopOutput_Pin,GPIO_PIN_SET);
+		TurnOff_Routine(ADC_Buffer,ADC_Buffer_Size,EMERG_FAIL_MSG,htim,hcan);
+	}
+	if (!SafeLoop)
+	{
+		TurnOff_Routine(ADC_Buffer,ADC_Buffer_Size,SAFE_FAIL_MSG,htim,hcan);
+	}
+}
+
+/**
+ * @brief  
+ * @note   
+ * @param  HAL_CAN: 
+ * @param  FIFO_ORDER: 
+ * @param  rxHeader: 
+ * @param  MSG_Buff: 
+ * @retval None
+ */
+void CAN_Rx_Routine(CAN_HandleTypeDef* HAL_CAN,uint32_t FIFO_ORDER,CAN_RxHeaderTypeDef* rxHeader,uint8_t* MSG_Buff,TIM_HandleTypeDef* htim)
+{
+	if (HAL_CAN_GetRxMessage(HAL_CAN, FIFO_ORDER, rxHeader, MSG_Buff) != HAL_OK)
+		Error_Handler();
+
+	// Only if message received is from Master Control Card
+	// will it affect the CAN routine
+	if (rxHeader->StdId == MASTER_ID)
+	{
+		// Message Data Is Correctly Received
+		if (rxHeader->DLC > 2 && MSG_Buff[0] == CARD_ID)
+		{
+			switch (MSG_Buff[1])
+			{
+			case INIT_MSG_FLAG:
+				Init_Routine(MSG_Buff,rxHeader->DLC,HAL_CAN);
+			case START_MSG_FLAG:
+				Start_Routine(MSG_Buff,rxHeader->DLC,htim,HAL_CAN);
+			case EMERG_MSG_FLAG:
+				TurnOff_Routine(MSG_Buff,rxHeader->DLC,EMERG_MSG_FLAG,HAL_CAN);
+			}
+		}
+	}
+}
