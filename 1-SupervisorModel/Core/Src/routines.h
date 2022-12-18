@@ -106,7 +106,7 @@ void TurnOff_Routine(uint8_t *Buffer, uint32_t DataLength, uint8_t FlagType,TIM_
 	switch (FlagType)
 	{
 	case INIT_FAIL_MSG:
-
+		
 	case START_FAIL_MSG:
 
 	case SAFE_FAIL_MSG:
@@ -128,10 +128,10 @@ void Init_Routine(uint8_t *Buffer, uint32_t DataLength,CAN_HandleTypeDef *hcan)
 
 	int8_t USignal,DSignal;
 	float Scale1, Scale2;
-	uint8_t ReplayMSG[2] = {CARD_ID,INIT_MSG_OK};
+	uint8_t ReplayMSG[2] = {CARD_ID,INIT_OK_MSG};
 
 
-	for(uint32_t i = 2,j=0 ; i < DataLength; i+=6,j++)
+	for(uint8_t i = 2,j=0 ; i < DataLength; i+=6,j++)
 	{
 
 		USignal = (Buffer[i+1] == 0x10 || Buffer[i+1] == 0x11)?-1:1;
@@ -203,7 +203,7 @@ void Start_Routine(uint8_t *Buffer, uint32_t DataLength,TIM_HandleTypeDef* htim,
 
 	uint8_t OKReplayMSG[2] = {CARD_ID,START_OK_MSG};
 
-	for(uint32_t i = 2,j=0 ; i < DataLength; i+=6,j++)
+	for(uint8_t i = 2,j=0 ; i < DataLength; i+=6,j++)
 	{
 
 		USignal = (Buffer[i+1] == 0x10 || Buffer[i+1] == 0x11)?-1:1;
@@ -226,7 +226,7 @@ void Start_Routine(uint8_t *Buffer, uint32_t DataLength,TIM_HandleTypeDef* htim,
 		case 0x70:
 			Scale1 = 1000;
 		default:
-			Scale1 = 1;SAC_Limits.START_FLAG = 1;
+			Scale1 = 1;
 		}
 
 		switch (Buffer[i] & 0b00001111)
@@ -339,6 +339,9 @@ void CAN_Rx_Routine(CAN_HandleTypeDef* HAL_CAN,uint32_t FIFO_ORDER,CAN_RxHeaderT
 				Start_Routine(MSG_Buff,rxHeader->DLC,htim,HAL_CAN);
 			case EMERG_MSG_FLAG:
 				TurnOff_Routine(MSG_Buff,rxHeader->DLC,EMERG_MSG_FLAG,HAL_CAN);
+			case VALUE_CB_FLAG:
+				VauleCallback_Routine();
+			case 
 			}
 		}
 	}
