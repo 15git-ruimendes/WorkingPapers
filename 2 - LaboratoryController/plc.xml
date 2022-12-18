@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2022-11-22T23:07:47"/>
+  <contentHeader name="Unnamed" modificationDateTime="2022-11-22T23:17:10">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="10" y="10"/>
+      </fbd>
+      <ld>
+        <scaling x="10" y="10"/>
+      </ld>
+      <sfc>
+        <scaling x="10" y="10"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="SafetyProgram" pouType="program">
+        <interface>
+          <inputVars>
+            <variable name="StartButton">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="StopButton">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="DoorSensor">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="ControlEnable">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="ControlReference">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="MainBreaker">
+              <type>
+                <DINT/>
+              </type>
+            </variable>
+            <variable name="SecondaryBreaker">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="DischargeBreaker">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="RunLight">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="EnabledLight">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="StopLight">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="ControllerStart">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="ControllerRef">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </outputVars>
+        </interface>
+        <body>
+          <SFC/>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Config0">
+        <resource name="Res0">
+          <task name="task0" priority="0" interval="T#20ms">
+            <pouInstance name="instance0" typeName="SafetyProgram"/>
+          </task>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+</project>
