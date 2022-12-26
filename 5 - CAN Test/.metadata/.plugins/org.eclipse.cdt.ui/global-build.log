@@ -1,0 +1,84 @@
+13:50:38 **** Incremental Build of configuration Release for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7596	     20	   3012	  10628	   2984	Sender.elf
+Finished building: default.size.stdout
+ 
+14:08:45 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+14:10:12 **** Incremental Build of configuration Release for project Reciever ****
+make -j4 all 
+arm-none-eabi-size   Reciever.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21880	    484	   3028	  25392	   6330	Reciever.elf
+Finished building: default.size.stdout
+ 
+14:20:42 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+14:22:22 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+14:23:40 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+14:24:31 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+16:11:55 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+16:15:30 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+16:16:22 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+16:29:12 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
+16:29:30 **** Incremental Build of configuration Debug for project Sender ****
+make -j4 all 
+arm-none-eabi-size   Sender.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27848	    484	   3028	  31360	   7a80	Sender.elf
+Finished building: default.size.stdout
+ 
