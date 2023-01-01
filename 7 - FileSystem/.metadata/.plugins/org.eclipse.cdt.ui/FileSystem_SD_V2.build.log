@@ -1,0 +1,17 @@
+14:35:30 **** Incremental Build of configuration Debug for project FileSystem_SD_V2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F412Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "FileSystem_SD_V2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/rui/Desktop/Code/WorkingPapers/7 - FileSystem/FileSystem_SD_V2/STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FileSystem_SD_V2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FileSystem_SD_V2.elf
+ 
+arm-none-eabi-size   FileSystem_SD_V2.elf 
+arm-none-eabi-objdump -h -S  FileSystem_SD_V2.elf  > "FileSystem_SD_V2.list"
+   text	   data	    bss	    dec	    hex	filename
+  30488	     20	   3084	  33592	   8338	FileSystem_SD_V2.elf
+Finished building: default.size.stdout
+ 
+Finished building: FileSystem_SD_V2.list
+ 
+
+14:35:31 Build Finished. 0 errors, 0 warnings. (took 1s.183ms)
+
