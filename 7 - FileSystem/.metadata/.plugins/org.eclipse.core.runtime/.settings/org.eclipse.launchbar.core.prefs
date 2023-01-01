@@ -1,7 +1,10 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SD Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SD_V2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SPI Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SD Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SD_V2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_BluePill Release,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SPI Debug
 eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_BluePill\ Release/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_BluePill\ Release/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SD\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SD\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FileSystem_SPI\ Debug/activeLaunchMode=debug

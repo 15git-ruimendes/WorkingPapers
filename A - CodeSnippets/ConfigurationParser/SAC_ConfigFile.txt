@@ -1,0 +1,4 @@
+card_can_id:1
+card_name:SAC_1
+card_can_allowed_no:2
+card_can_allowed:10,11
