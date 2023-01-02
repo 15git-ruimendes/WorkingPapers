@@ -1,0 +1,10 @@
+16:24:44 **** Incremental Build of configuration Release for project FileSystem_BluePill ****
+make -j4 all 
+arm-none-eabi-size   FileSystem_BluePill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21644	    144	   9224	  31012	   7924	FileSystem_BluePill.elf
+Finished building: default.size.stdout
+ 
+
+16:24:44 Build Finished. 0 errors, 0 warnings. (took 841ms)
+

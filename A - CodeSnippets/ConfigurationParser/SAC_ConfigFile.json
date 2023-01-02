@@ -1,0 +1,211 @@
+{
+	"config": {
+		"general": {
+			"name": "SAC - 1",
+			"id": "A",
+			"allowed_id": {
+				"id": [1, "F"]
+			}
+		},
+		"card": {
+			"CH_Num": 6,
+			"sample_f": 1000,
+			"CH_Config": {
+				"CH": [
+					{
+						"id": 0,
+						"nickname": "High Side Voltage",
+						"gain": "",
+						"bias": "",
+						"offset": "",
+						"operations": {
+							"absolute": {
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"rms": {
+								"frequency": "",
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"pll": {
+								"gain": "",
+								"time_const": ""
+							},
+							"filter_1": {
+								"fc": "",
+								"frequency": "",
+								"high_limit": ""
+							}
+						},
+						"record": {
+							"file_size": "",
+							"elements": "",
+							"interval": ""
+						}
+					},
+					{
+						"id": 0,
+						"nickname": "High Side Voltage",
+						"gain": "",
+						"bias": "",
+						"offset": "",
+						"operations": {
+							"absolute": {
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"rms": {
+								"frequency": "",
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"pll": {
+								"gain": "",
+								"time_const": ""
+							},
+							"filter_1": {
+								"fc": "",
+								"frequency": "",
+								"high_limit": ""
+							}
+						},
+						"record": {
+							"file_size": "",
+							"elements": "",
+							"interval": ""
+						}
+					},
+					{
+						"id": 0,
+						"nickname": "High Side Voltage",
+						"gain": "",
+						"bias": "",
+						"offset": "",
+						"operations": {
+							"absolute": {
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"rms": {
+								"frequency": "",
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"pll": {
+								"gain": "",
+								"time_const": ""
+							},
+							"filter_1": {
+								"fc": "",
+								"frequency": "",
+								"high_limit": ""
+							}
+						},
+						"record": {
+							"file_size": "",
+							"elements": "",
+							"interval": ""
+						}
+					},
+					{
+						"id": 0,
+						"nickname": "High Side Voltage",
+						"gain": "",
+						"bias": "",
+						"offset": "",
+						"operations": {
+							"absolute": {
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"rms": {
+								"frequency": "",
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"pll": {
+								"gain": "",
+								"time_const": ""
+							},
+							"filter_1": {
+								"fc": "",
+								"frequency": "",
+								"high_limit": ""
+							}
+						},
+						"record": {
+							"file_size": "",
+							"elements": "",
+							"interval": ""
+						}
+					},
+					{
+						"id": 0,
+						"nickname": "High Side Voltage",
+						"gain": "",
+						"bias": "",
+						"offset": "",
+						"operations": {
+							"absolute": {
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"rms": {
+								"frequency": "",
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"pll": {
+								"gain": "",
+								"time_const": ""
+							},
+							"filter_1": {
+								"fc": "",
+								"frequency": "",
+								"high_limit": ""
+							}
+						},
+						"record": {
+							"file_size": "",
+							"elements": "",
+							"interval": ""
+						}
+					},
+					{
+						"id": 0,
+						"nickname": "High Side Voltage",
+						"gain": "",
+						"bias": "",
+						"offset": "",
+						"operations": {
+							"absolute": {
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"rms": {
+								"frequency": "",
+								"high_limit": "",
+								"low_limit": ""
+							},
+							"pll": {
+								"gain": "",
+								"time_const": ""
+							},
+							"filter_1": {
+								"fc": "",
+								"frequency": "",
+								"high_limit": ""
+							}
+						},
+						"record": {
+							"file_size": "",
+							"elements": "",
+							"interval": ""
+						}
+					}
+				]
+			}
+		}
+	}
+}

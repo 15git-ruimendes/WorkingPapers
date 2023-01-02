@@ -1,0 +1,10 @@
+19:37:45 **** Incremental Build of configuration Debug for project FileSystem_SPI ****
+make -j4 all 
+arm-none-eabi-size   FileSystem_SPI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30688	     44	  12876	  43608	   aa58	FileSystem_SPI.elf
+Finished building: default.size.stdout
+ 
+
+19:37:46 Build Finished. 0 errors, 0 warnings. (took 834ms)
+
