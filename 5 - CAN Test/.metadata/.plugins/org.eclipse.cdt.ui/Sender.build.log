@@ -1,10 +1,17 @@
-16:29:30 **** Incremental Build of configuration Debug for project Sender ****
-make -j4 all 
+15:23:18 **** Incremental Build of configuration Debug for project Sender ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F412Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Sender.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RuiMendes\OneDrive - Nomad Tech Lda\Documentos\WorkingPapers\5 - CAN Test\Sender\STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sender.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Sender.elf
+ 
 arm-none-eabi-size   Sender.elf 
+arm-none-eabi-objdump -h -S  Sender.elf  > "Sender.list"
    text	   data	    bss	    dec	    hex	filename
-  27848	    484	   3028	  31360	   7a80	Sender.elf
+  27856	    484	   3028	  31368	   7a88	Sender.elf
 Finished building: default.size.stdout
  
+Finished building: Sender.list
+ 
 
-16:29:31 Build Finished. 0 errors, 0 warnings. (took 774ms)
+15:23:22 Build Finished. 0 errors, 0 warnings. (took 4s.367ms)
 

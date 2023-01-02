@@ -1,10 +1,27 @@
-14:10:12 **** Incremental Build of configuration Release for project Reciever ****
-make -j4 all 
+15:25:32 **** Incremental Build of configuration Debug for project Reciever ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F412Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_CAN_RxFifo0MsgPendingCallback':
+../Core/Src/main.c:356:8: warning: unused variable 'MSG' [-Wunused-variable]
+  356 |   char MSG[50];
+      |        ^~~
+../Core/Src/main.c:354:9: warning: unused variable 'Num2' [-Wunused-variable]
+  354 |   float Num2 = FData.Number;
+      |         ^~~~
+../Core/Src/main.c:347:9: warning: unused variable 'Num1' [-Wunused-variable]
+  347 |   float Num1 = FData.Number;
+      |         ^~~~
+arm-none-eabi-gcc -o "Reciever.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RuiMendes\OneDrive - Nomad Tech Lda\Documentos\WorkingPapers\5 - CAN Test\Reciever\STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Reciever.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Reciever.elf
+ 
 arm-none-eabi-size   Reciever.elf 
+arm-none-eabi-objdump -h -S  Reciever.elf  > "Reciever.list"
    text	   data	    bss	    dec	    hex	filename
-  21880	    484	   3028	  25392	   6330	Reciever.elf
+  27320	    484	   3028	  30832	   7870	Reciever.elf
 Finished building: default.size.stdout
  
+Finished building: Reciever.list
+ 
 
-14:10:13 Build Finished. 0 errors, 0 warnings. (took 778ms)
+15:25:35 Build Finished. 0 errors, 3 warnings. (took 3s.515ms)
 
