@@ -1,0 +1,112 @@
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 0.5fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		"Header Header Header"
+		"Data-Tables Data-Tables Data-Tables"
+		"Increase Decrease Submit";
+}
+.Header {
+	grid-area: Header;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: #590404;
+}
+.Tl {
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 30%;
+	color: #ffffff;
+}
+.Data-Tables {
+	grid-area: Data-Tables;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 0px;
+}
+.Increase {
+	grid-area: Increase;
+	margin: auto;
+	margin-top: 10px;
+}
+.Decrease {
+	grid-area: Decrease;
+	margin: auto;
+	margin-top: 10px;
+}
+.Submit {
+	grid-area: Submit;
+	margin: auto;
+	margin-top: 10px;
+}
+table.DataTable {
+	border: 2px solid #5c0404;
+	margin: auto;
+	background-color: #e0e0e0;
+	width: 100%;
+	text-align: center;
+}
+table.DataTable td,
+table.DataTable th {
+	border: 1px solid #aaaaaa;
+	padding: 3px 2px;
+}
+table.DataTable tbody td {
+	font-size: 22px;
+}
+table.DataTable tr:nth-child(even) {
+	background: #de8785;
+}
+table.DataTable thead {
+	background: #7b0606;
+}
+table.DataTable thead th {
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: center;
+	border-left: 1px solid #590404;
+}
+table.DataTable thead th:first-child {
+	border-left: none;
+}
+
+table.DataTable tfoot td {
+	font-size: 24px;
+}
+table.DataTable tfoot .links {
+	text-align: right;
+}
+table.DataTable tfoot .links a {
+	display: inline-block;
+	background: #ffffff;
+	color: #590404;
+	padding: 2px 8px;
+	border-radius: 5px;
+}
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #cf866c;
+	background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color: #d0451b;
+	border-radius: 3px;
+	border: 1px solid #590404;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #854629;
+}
+.myButton:hover {
+	background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color: #bc3315;
+}
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
