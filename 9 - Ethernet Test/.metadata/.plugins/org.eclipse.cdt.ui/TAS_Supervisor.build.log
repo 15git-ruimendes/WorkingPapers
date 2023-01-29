@@ -1,0 +1,17 @@
+17:13:33 **** Incremental Build of configuration Debug for project TAS_Supervisor ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/1-ConfigurationParser.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F412Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/1-ConfigurationParser.d" -MT"Core/Src/1-ConfigurationParser.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/1-ConfigurationParser.o"
+arm-none-eabi-gcc -o "TAS_Supervisor.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/rui/Desktop/Code/WorkingPapers/A8 - STM Supervisors/2 - TAS_Supervisor/STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TAS_Supervisor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TAS_Supervisor.elf
+ 
+arm-none-eabi-size   TAS_Supervisor.elf 
+arm-none-eabi-objdump -h -S  TAS_Supervisor.elf  > "TAS_Supervisor.list"
+   text	   data	    bss	    dec	    hex	filename
+  65900	    512	  43544	 109956	  1ad84	TAS_Supervisor.elf
+Finished building: default.size.stdout
+ 
+Finished building: TAS_Supervisor.list
+ 
+
+17:13:35 Build Finished. 0 errors, 0 warnings. (took 1s.294ms)
+

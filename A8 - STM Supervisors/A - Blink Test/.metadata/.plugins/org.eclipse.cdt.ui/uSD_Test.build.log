@@ -1,0 +1,10 @@
+11:52:02 **** Incremental Build of configuration Debug for project uSD_Test ****
+make -j16 all 
+arm-none-eabi-size   uSD_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22844	     40	  10608	  33492	   82d4	uSD_Test.elf
+Finished building: default.size.stdout
+ 
+
+11:52:02 Build Finished. 0 errors, 0 warnings. (took 603ms)
+

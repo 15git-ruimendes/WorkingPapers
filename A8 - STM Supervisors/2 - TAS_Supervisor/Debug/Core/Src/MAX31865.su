@@ -1,0 +1,10 @@
+../Core/Src/MAX31865.c:18:6:spi_write	24	static
+../Core/Src/MAX31865.c:40:6:spi_read	24	static
+../Core/Src/MAX31865.c:65:6:MAX31865_read	24	static
+../Core/Src/MAX31865.c:83:6:MAX31865_write	16	static
+../Core/Src/MAX31865.c:99:6:enableBias	32	static
+../Core/Src/MAX31865.c:119:6:autoConvert	32	static
+../Core/Src/MAX31865.c:139:6:setWires	32	static
+../Core/Src/MAX31865.c:158:6:single_shot	32	static
+../Core/Src/MAX31865.c:181:6:MAX31865_init	24	static
+../Core/Src/MAX31865.c:211:7:MAX31865_readTemp	40	static

@@ -1,0 +1,43 @@
+Card Name,TAS,STRING
+Card CAN Id,11,INT8
+Master,1,BOOL/INT8
+Communication,2,BOOL/INT8
+Supervision Frequency,1000,FLOAT
+Number of used channels,2,INT8
+Record Time Step,10000,FLOAT
+Record Folder Max Number Files,10,INT32
+Record File Max Size,5000000,INT32
+Record Folder Name,BoosterTemperatureLog,STRING
+Value Publication Time,2000,INT32
+PT100 CH1 Probe,1,INT8
+Warning Value,50,FLOAT
+Critical Value,75.5,FLOAT
+PT100 CH2 Probe,0,INT8
+Warning Value,-,FLOAT
+Critical Value,-,FLOAT
+PT100 CH3 Probe,0,INT8
+Warning Value,-,FLOAT
+Critical Value,-,FLOAT
+PT100 CH4 Probe,0,INT8
+Warning Value,-,FLOAT
+Critical Value,-,FLOAT
+PT100 CH5 Probe,0,INT8
+Warning Value,-,FLOAT
+Critical Value,-,FLOAT
+PT100 CH6 Probe,0,INT8
+Warning Value,-,FLOAT
+Critical Value,-,FLOAT
+PT100 CH7 Probe,0,INT8
+Warning Value,-,FLOAT
+Critical Value,-,FLOAT
+PT100 CH8 Probe,0,INT8
+Warning Value,-,FLOAT
+Critical Value,-,FLOAT
+Termostat 1,1,INT8
+Termostat 2,1,INT8
+Termostat 3,1,INT8
+Termostat 4,0,INT8
+Termostat 5,0,INT8
+Termostat 6,0,INT8
+Termostat 7,1,INT8
+Termostat 8,1,INT8

@@ -1,0 +1,12 @@
+../Core/Src/2-GlobalRoutines.c:18:6:lowerSFL	8	static
+../Core/Src/2-GlobalRoutines.c:25:7:rmsCalc	32	static
+../Core/Src/2-GlobalRoutines.c:45:7:filtCalc	8	static
+../Core/Src/2-GlobalRoutines.c:57:10:ADC_SELECT	32	static
+../Core/Src/2-GlobalRoutines.c:126:6:superRoutine	48	static
+../Core/Src/2-GlobalRoutines.c:275:6:startRoutine	16	static
+../Core/Src/2-GlobalRoutines.c:311:6:stopRoutine	0	static
+../Core/Src/2-GlobalRoutines.c:319:6:recalRoutine	0	static
+../Core/Src/2-GlobalRoutines.c:331:10:idBuilder	0	static
+../Core/Src/2-GlobalRoutines.c:345:9:idParser	8	static
+../Core/Src/2-GlobalRoutines.c:371:6:canParser	8	static
+../Core/Src/2-GlobalRoutines.c:407:6:canTX	0	static

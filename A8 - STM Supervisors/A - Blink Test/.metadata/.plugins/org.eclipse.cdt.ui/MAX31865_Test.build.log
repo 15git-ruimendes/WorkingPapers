@@ -1,0 +1,26 @@
+12:03:22 **** Incremental Build of configuration Debug for project MAX31865_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F412Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:181:4: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  181 |    sprintf((char*)time,"%02d:%02d:%02d",gTime.Hours, gTime.Minutes, gTime.Seconds);
+      |    ^~~~~~~
+../Core/Src/main.c:181:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:27:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   26 | #include "MAX31865.h"
+  +++ |+#include <stdio.h>
+   27 | /* USER CODE END Includes */
+arm-none-eabi-gcc -o "MAX31865_Test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RuiMendes\OneDrive - Nomad Tech Lda\Documentos\Repositories\Laboratory\A8 - STM Supervisors\E - MAX31865 Test\STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MAX31865_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MAX31865_Test.elf
+ 
+arm-none-eabi-size   MAX31865_Test.elf 
+arm-none-eabi-objdump -h -S  MAX31865_Test.elf  > "MAX31865_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  30832	    504	   1904	  33240	   81d8	MAX31865_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MAX31865_Test.list
+ 
+
+12:03:24 Build Finished. 0 errors, 2 warnings. (took 1s.939ms)
+

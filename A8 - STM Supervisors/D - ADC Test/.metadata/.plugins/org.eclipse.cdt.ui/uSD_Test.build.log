@@ -1,0 +1,31 @@
+14:48:22 **** Build of configuration Debug for project uSD_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../FATFS/Target/user_diskio_spi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F412Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"FATFS/Target/user_diskio_spi.d" -MT"FATFS/Target/user_diskio_spi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "FATFS/Target/user_diskio_spi.o"
+../FATFS/Target/user_diskio_spi.c: In function 'xchg_spi':
+../FATFS/Target/user_diskio_spi.c:110:30: error: 'SD_SPI_HANDLE' undeclared (first use in this function)
+  110 |     HAL_SPI_TransmitReceive(&SD_SPI_HANDLE, &dat, &rxDat, 1, 50);
+      |                              ^~~~~~~~~~~~~
+../FATFS/Target/user_diskio_spi.c:110:30: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:29,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f4xx_hal_conf.h:275,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../FATFS/Target/user_diskio_spi.c:27:
+../FATFS/Target/user_diskio_spi.c: In function 'USER_SPI_initialize':
+../FATFS/Target/user_diskio_spi.c:39:34: error: 'SD_SPI_HANDLE' undeclared (first use in this function)
+   39 | #define FCLK_SLOW() { MODIFY_REG(SD_SPI_HANDLE.Instance->CR1, SPI_BAUDRATEPRESCALER_256, SPI_BAUDRATEPRESCALER_64); } /* Set SCLK = slow, approx 280 KBits/s*/
+      |                                  ^~~~~~~~~~~~~
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:219:33: note: in definition of macro 'WRITE_REG'
+  219 | #define WRITE_REG(REG, VAL)   ((REG) = (VAL))
+      |                                 ^~~
+../FATFS/Target/user_diskio_spi.c:39:23: note: in expansion of macro 'MODIFY_REG'
+   39 | #define FCLK_SLOW() { MODIFY_REG(SD_SPI_HANDLE.Instance->CR1, SPI_BAUDRATEPRESCALER_256, SPI_BAUDRATEPRESCALER_64); } /* Set SCLK = slow, approx 280 KBits/s*/
+      |                       ^~~~~~~~~~
+../FATFS/Target/user_diskio_spi.c:333:2: note: in expansion of macro 'FCLK_SLOW'
+  333 |  FCLK_SLOW();
+      |  ^~~~~~~~~
+make: *** [FATFS/Target/subdir.mk:22: FATFS/Target/user_diskio_spi.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+
+14:48:23 Build Failed. 3 errors, 0 warnings. (took 1s.395ms)
+

@@ -1,0 +1,110 @@
+Card Name,SAC-1,STRING
+Card CAN Id,10,INT8
+Master,1,BOOL/INT8
+Communication,FALSE,BOOL/INT8
+Supervision Frequency,4000,FLOAT
+Number of used channels,2,INT8
+Record Time Step,1000,FLOAT
+Event Time Step,1,FLOAT
+Record Folder Max Number Files,15000000,INT32
+Event Folder Max Number Files,10,INT32
+Record File Max Size,5000000,INT32
+Event File Max Size,4000000,INT32
+Record Folder Name,BoosterRecordLog-1$,STRING
+Event Folder Name,BoosterEventLog-1$,STRING
+CH1,TRUE,BOOL
+Channel Nickname,High Side Voltage,STRING
+Gain,0.001,FLOAT
+Bias ,-150.15,FLOAT
+Offset,0,FLOAT
+Absolute Comparations,TRUE,FLOAT
+Absolute Upper Limits,1500,FLOAT
+Absolute Lower Limits,-1500,FLOAT
+Filter Comparation,TRUE,FLOAT
+Filter Gain,0.001,FLOAT
+Filter Time Constant ,0.0005,FLOAT
+Filter Upper Limit,350,FLOAT
+Filter Lower Limit,-350,FLOAT
+RMS Comparation,TRUE,FLOAT
+RMS Upper Limit,150,FLOAT
+RMS Lower Limit,-200,FLOAT
+CH2,FALSE,BOOL
+Channel Nickname,0,STRING
+Gain,0,FLOAT
+Bias ,0,FLOAT
+Offset,0,FLOAT
+Absolute Comparations,0,FLOAT
+Absolute Upper Limits,0,FLOAT
+Absolute Lower Limits,0,FLOAT
+Filter Comparation,0,FLOAT
+Filter Gain,0,FLOAT
+Filter Time Constant ,0,FLOAT
+Filter Upper Limit,0,FLOAT
+Filter Lower Limit,0,FLOAT
+RMS Comparation,0,FLOAT
+RMS Upper Limit,0,FLOAT
+RMS Lower Limit,0,FLOAT
+CH3,FALSE,BOOL
+Channel Nickname,0,STRING
+Gain,0,FLOAT
+Bias ,0,FLOAT
+Offset,0,FLOAT
+Absolute Comparations,0,FLOAT
+Absolute Upper Limits,0,FLOAT
+Absolute Lower Limits,0,FLOAT
+Filter Comparation,0,FLOAT
+Filter Gain,0,FLOAT
+Filter Time Constant ,0,FLOAT
+Filter Upper Limit,0,FLOAT
+Filter Lower Limit,0,FLOAT
+RMS Comparation,0,FLOAT
+RMS Upper Limit,0,FLOAT
+RMS Lower Limit,0,FLOAT
+CH4,TRUE,BOOL
+Channel Nickname,High Side Current,STRING
+Gain,0.086333,FLOAT
+Bias ,-50.56,FLOAT
+Offset,0,FLOAT
+Absolute Comparations,TRUE,FLOAT
+Absolute Upper Limits,1500,FLOAT
+Absolute Lower Limits,-1500,FLOAT
+Filter Comparation,FALSE,FLOAT
+Filter Gain,0,FLOAT
+Filter Time Constant ,0,FLOAT
+Filter Upper Limit,0,FLOAT
+Filter Lower Limit,0,FLOAT
+RMS Comparation,TRUE,FLOAT
+RMS Upper Limit,150,FLOAT
+RMS Lower Limit,-200,FLOAT
+CH5,FALSE,BOOL
+Channel Nickname,0,STRING
+Gain,0,FLOAT
+Bias ,0,FLOAT
+Offset,0,FLOAT
+Absolute Comparations,0,FLOAT
+Absolute Upper Limits,0,FLOAT
+Absolute Lower Limits,0,FLOAT
+Filter Comparation,0,FLOAT
+Filter Gain,0,FLOAT
+Filter Time Constant ,0,FLOAT
+Filter Upper Limit,0,FLOAT
+Filter Lower Limit,0,FLOAT
+RMS Comparation,0,FLOAT
+RMS Upper Limit,0,FLOAT
+RMS Lower Limit,0,FLOAT
+CH6,FALSE,BOOL
+Channel Nickname,0,STRING
+Gain,0,FLOAT
+Bias ,0,FLOAT
+Offset,0,FLOAT
+Absolute Comparations,0,FLOAT
+Absolute Upper Limits,0,FLOAT
+Absolute Lower Limits,0,FLOAT
+Filter Comparation,0,FLOAT
+Filter Gain,0,FLOAT
+Filter Time Constant ,0,FLOAT
+Filter Upper Limit,0,FLOAT
+Filter Lower Limit,0,FLOAT
+RMS Comparation,0,FLOAT
+RMS Upper Limit,0,FLOAT
+RMS Lower Limit,0,FLOAT
