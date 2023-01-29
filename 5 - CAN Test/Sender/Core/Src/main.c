@@ -18,7 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include <stdio.h>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -134,9 +134,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	HAL_CAN_AddTxMessage(&hcan1,&TxHeader,TxData,&MailBox);
-	HAL_GPIO_TogglePin(Led_GPIO_Port,Led_Pin);
-	HAL_Delay(500);
+	  HAL_CAN_AddTxMessage(&hcan1,&TxHeader,TxData,&MailBox);
+	  HAL_Delay(1000);
+	  HAL_GPIO_TogglePin(Led_GPIO_Port,Led_Pin);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

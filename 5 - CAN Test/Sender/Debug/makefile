@@ -60,8 +60,8 @@ all: main-build
 main-build: Sender.elf secondary-outputs
 
 # Tool invocations
-Sender.elf Sender.map: $(OBJS) $(USER_OBJS) C:\Users\RuiMendes\OneDrive\ -\ Nomad\ Tech\ Lda\Documentos\WorkingPapers\5\ -\ CAN\ Test\Sender\STM32F412RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Sender.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\RuiMendes\OneDrive - Nomad Tech Lda\Documentos\WorkingPapers\5 - CAN Test\Sender\STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sender.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Sender.elf Sender.map: $(OBJS) $(USER_OBJS) /home/rui/Desktop/Code/WorkingPapers/5\ -\ CAN\ Test/Sender/STM32F412RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Sender.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/rui/Desktop/Code/WorkingPapers/5 - CAN Test/Sender/STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sender.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
