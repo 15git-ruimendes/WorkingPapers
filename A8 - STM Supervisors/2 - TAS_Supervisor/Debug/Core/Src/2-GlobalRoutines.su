@@ -1,0 +1,9 @@
+../Core/Src/2-GlobalRoutines.c:21:6:lowerSFL	8	static
+../Core/Src/2-GlobalRoutines.c:31:6:superRoutine	80	static
+../Core/Src/2-GlobalRoutines.c:150:6:startRoutine	32	static
+../Core/Src/2-GlobalRoutines.c:191:6:stopRoutine	16	static
+../Core/Src/2-GlobalRoutines.c:199:6:recalRoutine	16	static
+../Core/Src/2-GlobalRoutines.c:211:10:idBuilder	24	static
+../Core/Src/2-GlobalRoutines.c:225:9:idParser	24	static
+../Core/Src/2-GlobalRoutines.c:251:6:canParser	32	static
+../Core/Src/2-GlobalRoutines.c:287:6:canTX	24	static

@@ -1,0 +1,6 @@
+../Core/Src/1-ConfigurationParser.c:3:5:startNewRecordFile	0	static
+../Core/Src/1-ConfigurationParser.c:16:5:recordFile	0	static
+../Core/Src/1-ConfigurationParser.c:21:5:saveEvent	0	static
+../Core/Src/1-ConfigurationParser.c:26:5:CreateFoldersStartHeaders	8	static
+../Core/Src/1-ConfigurationParser.c:54:5:ReadConfigFile	5184	static
+../Core/Src/1-ConfigurationParser.c:78:5:Parser	32	static

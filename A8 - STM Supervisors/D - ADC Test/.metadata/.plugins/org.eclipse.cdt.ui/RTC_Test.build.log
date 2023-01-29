@@ -1,0 +1,26 @@
+15:43:00 **** Incremental Build of configuration Debug for project RTC_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F412Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  110 |    sprintf(DTString,"Date: %02d.%02d.%02d  Time: %02d.%02d.%02d\n",RTC_Date.Date,RTC_Date.Month,RTC_Date.Year,RTC_Time.Hours,RTC_Time.Minutes,RTC_Time.Seconds);
+      |    ^~~~~~~
+../Core/Src/main.c:110:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:25:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   24 | #include <string.h>
+  +++ |+#include <stdio.h>
+   25 | /* USER CODE END Includes */
+arm-none-eabi-gcc -o "RTC_Test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\RuiMendes\OneDrive - Nomad Tech Lda\Documentos\Repositories\Laboratory\A8 - STM Supervisors\H - RTC Test\STM32F412RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTC_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTC_Test.elf
+ 
+arm-none-eabi-size   RTC_Test.elf 
+arm-none-eabi-objdump -h -S  RTC_Test.elf  > "RTC_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  13072	    120	   1712	  14904	   3a38	RTC_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTC_Test.list
+ 
+
+15:43:03 Build Finished. 0 errors, 2 warnings. (took 2s.355ms)
+

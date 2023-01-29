@@ -1,0 +1,10 @@
+14:48:15 **** Build of configuration Debug for project CAN_Transiver_NTPill ****
+make -j16 all 
+arm-none-eabi-size   CAN_Transiver_NTPill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27768	    484	   1772	  30024	   7548	CAN_Transiver_NTPill.elf
+Finished building: default.size.stdout
+ 
+
+14:48:16 Build Finished. 0 errors, 0 warnings. (took 774ms)
+

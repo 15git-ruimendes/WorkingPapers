@@ -1,0 +1,10 @@
+14:48:17 **** Build of configuration Debug for project MAX31865_Test ****
+make -j16 all 
+arm-none-eabi-size   MAX31865_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  30832	    504	   1904	  33240	   81d8	MAX31865_Test.elf
+Finished building: default.size.stdout
+ 
+
+14:48:18 Build Finished. 0 errors, 0 warnings. (took 961ms)
+
