@@ -15,6 +15,9 @@ def GeneralCardTester():
     return
 
 def TASCardTester():
+    TASReport = open("TAS-FunctionReport.txt","w")
+    TASReport.write("TAS Report Card\n\n")
+    
     return
 
 def SACCardTester():
@@ -45,5 +48,7 @@ if __name__ == '__main__':
         print(f"CAN Client created: {CAN.channel_info}")
     except:
         print("CAN bus not connected. Please check CAN bus status and retry.")
+
+    # CAN Testing Functions
 
 
